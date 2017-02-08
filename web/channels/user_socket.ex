@@ -2,7 +2,8 @@ defmodule Sockets.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Sockets.RoomChannel
+  channel "room:*", Sockets.RoomChannel
+  # channel "room:lobby", Sockets.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -19,7 +20,9 @@ defmodule Sockets.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
+  def connect(params, socket) do
+    IO.puts "connect ----------------"
+    IO.inspect params
     {:ok, socket}
   end
 
